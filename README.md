@@ -964,3 +964,93 @@ class ArrTest{
         }
      }
 ```
+
+## Dangling References
+<ul>
+  <li><b>Dangling reference:</b> a location that has been
+    </br>deallocated from the environment but can still be
+    </br>accessed by a program
+    <ul>
+      <li>Occurs when a pointer points to a deallocated object</li>
+  </ul></li>
+</ul>
+
+``` C
+int *x, *y;
+...
+x = (int *) malloc(sizeof(int));
+...
+*x = 2;
+...
+y = x; /* *y and *x now aliases */
+free(x); /* *y now a dangling reference */
+...
+print("%d\n", *y); /* illegal reference */
+```
+
+## Dangling References (cont'd.)
+<ul>
+  <li>Can also result from automatic deallocation of local
+    </br>variables on exit from a block. with the C address
+    </br>of operator</li>
+</ul>
+
+``` C
+{ int *x;
+  { int y;
+    y = 2;
+    x = &y;
+  }
+  /* *x is now a dangling reference */
+}
+```
+
+## (cont'd.)
+<ul>
+  <li>Java does not allow dangling references at all
+    </br>because:
+    <ul>
+      <li>There are no explicity pointers</li>
+      <li>There is no address of operator</li>
+      <li>There are no memory deallocation operators such
+      </br>as <code>free</code> or <code>delete</code></li>
+    </ul>
+  </li>
+</ul>
+
+## Garbage
+<ul>
+  <li><b>Garbage:</b> memory that has been allocated in the
+  </br>environment but is now inaccessible to the program</li>
+  <li>Can occur in C by failing to call free before
+  </br>reassigning a pointer variable</li>
+</ul>
+
+``` C
+int *x;
+...
+x = (int *) malloc(sizeof(int));
+x = 0;
+```
+
+<ul>
+  <li>A program that is internally correct but produces
+  </br>garbage may run out of memory</li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li>A program with dangling references may:
+    <ul>
+      <li>Produce incorrect results</li>
+      <li>Corrupt other programs in memory</li>
+      <li>Cause runtime errors that are hard to lcoate</li>
+    </ul>
+  <li>For this reason, it is useful to remove the need to
+  </br>deallocate memory explicitly from the programmer</li>
+  <li><b>Garbage collection:</b> process of automatically
+  </br>reclaiming garbage</li>
+  <li>Language design is a key factor in the kind of
+  </br>runtime environment necessary for correct
+  </br>execution of programs</li>
+</ul>
