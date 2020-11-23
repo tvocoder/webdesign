@@ -107,3 +107,34 @@
   </tr>
   </tbody>
 </table>
+
+## Identifier Role Analysis
+<ul>
+  <li>An identifier names an entity, such as a variable, a
+    </br>constant, or an entire data type
+    <ul>
+  <li>This attribute of an identifier is called its <b>role</b></li>
+    </ul>
+  </li>
+  <li>An identifier's role imposes certain restrictions on its use</li>
+  <li>Examples:
+    <ul>
+      <li>Only a variable or parameter identifier can appear on
+      </br>the left side of an assignment statement</li>
+      <li>Only a type identifier can appear as the element type
+      </br>of an array</li>
+    </ul>
+  </li>
+</ul>
+
+## Identifier Role Analysis (cont'd.)
+<ul>
+  <li>Identifier acquires its role in its declaration
+    <ul>
+      <li>Role is saved in the symbol table for future use</li>
+    </ul>
+  </li>
+  <li>Role analysis uses the symbol table to share
+  </br>contextual information about identifiers among
+  </br>otherwise independen parsing methods</li>
+</ul>
