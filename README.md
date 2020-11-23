@@ -573,7 +573,9 @@ int max(int x, int y, int z) { // max #3
 ## Name Resolution and Overloading (cont'd.)
 <ul>
   <li>Consider these function calls:
-    <p><code>max(2, 3); // calls max #1 </br> max(2.1, 3.2); // calls max #2 </br> max(1, 3, 2); // calls max #3</code></p>
+    <p><code>max(2, 3); // calls max #1 
+      max(2.1, 3.2); // calls max #2
+      max(1, 3, 2); // calls max #3</code></p>
     </li>
   <li>Symbol table can determine the appropriate
   </br>function based on number and type of parameters</li>
@@ -599,3 +601,160 @@ double max(double x, int y) { // max #5
 ```
 <li> Automatic conversions as they exist in C++ and
   </br>Java significantly complicate overload resolution</li>
+  
+## Name Resolution and Overloading (cont'd.)
+<ul>
+  <li>Additional information in a calling context may be
+    </br>used for overload resolution:
+    <ul>
+      <li>Ada allows the return type and names of parameters
+        </br>to be used for overhead resolution</li>
+      <li>C++ and Java ignore the return type</li>
+    </ul>
+  <li>Both Ada and C++(but not Java) allow built-in
+  </br>operators to be overloaded</li>
+  <li>When overloading a built-in operator, we must
+  </br>accept its syntactic properties
+    <ul>
+      <li>Example: cannot change the associativity or
+        </br>precedence of the <code>+</code> operator</li>
+    </ul></li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li>Note that there is no semantic difference between
+    </br>operators and functions, only syntactic difference
+    <ul>
+      <li>Operators are written in infix form</li>
+      <li>Function calls are always written in prefix form</li></ul>
+  </li>
+  <li>Names can also be overloaded</li>
+  <li>Some languages use different symbol tables for
+  </br>each of the major kinds of definitions to allow the
+  </br>same name for a type, a function, and a variable
+    <ul>
+  <li>Example: Java</li></ul></li>
+</ul>
+
+## code example:
+``` Java
+class A
+{ A A(A A)
+  { A:
+    for(;;)
+    { if (A.A(A) == A) break A; }
+  }
+}
+```
+<p><emp>7.26</emp> Java class definition showing overloading of the same name for different language constructs</p>
+
+## Allocation, Lifetimes, and the Environment
+<ul>
+  <li>Environment: maintains the bindings of names to
+    </br>locations
+    <ul>
+      <li>May be constructed statically(at load time),
+  </br>dynamically(at execution time), or with a mixture of
+  </br>both</li></ul></li>
+  <li>Not all names in a program are bound to locations
+    <ul>
+      <li>Examples: names of constants and data types may
+      </br>represent purely compile-time quantites</li>
+    </ul></li>
+  <li>Declarations are also used in environment
+  </br>construction
+    <ul>
+      <li>Indicate what allocation code must be generated</li>
+   </ul></li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li>Typically, in a block-structured language:
+    <ul>
+      <li>Global variables are allocated statically</li>
+      <li>Local variables are allocated dynamically when the
+      </br>block is entered</li>
+    </ul>
+  </li>
+  <li>When a block is entered, memory for variables
+</br>declared in that block is allocated</li>
+  <li>When a block is exited, this memory is deallocated</li>
+</ul>
+
+## code example
+``` C
+A: { int x;
+     char y;
+     ...
+     
+     B: { double x;
+          int a;
+          ...
+        } /* end B */
+        
+     C: { char y;
+          int b;
+          ...
+          
+          D: { int x;
+               double y;
+               ...
+             } /* end D */
+             ...
+           } /* end C */
+           ...
+         } /* end A */
+```
+<span><emp>Figure 7.27</emp> A C program with nested blocks to demonstrate
+  </br>allocation by the environment</span>
+  
+## Allocation, Lifetimes, and the Environment (cont'd.)
+<ul>
+  <li>Memory for local variables within a function will not
+  </br>be allocated until the function is called</li>
+  <li><b>Activation:</b> a call to a function</li>
+  <li><b>Activation record:</b> the corresponding region of
+</br>allocated memory</li>
+  <li>In a block-structured language with lexical scope,
+</br>the same name can be associated with different
+</br>locations, but only one of these can be accessed at 
+</br>any one time</li>
+  <li><b>Lifetime</b>(or <b>extent</b>) of an object is the duration of
+</br>its allocation in the environment</li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li>Lifetime of an object can extend beyond the region
+    </br>of a program in which it can be accessed
+    <ul>
+      <li>Lifetime extends through a scope hole</li>
+    </ul></li>
+  <li><b>Pointer:</b> an object whose stored value is a
+</br>reference to another object</li>
+  <li>C allows the initialization of pointers that do not
+  </br>point to an allocated object: <code> int* x = NULL</code>
+    <ul>
+      <li>Objects must be manually allocated by use of an
+  </br>allocation routine</li>
+      <li>Variable can be dereferenced using the unary *
+</br>operator</li>
+    </ul></li>
+</ul>
+
+## Allocation, Lifetimes, and the Environment (cont'd.)
+<li>C++ simplifies dynamic allocation with operators
+</br><code>new</code> and <code>delete</code>:</li>
+``` C++
+int* x = new int; // C++
+*x = 2;
+
+cout << *x << endl; // output in C++
+delete x;
+```
+<p>&emsp;&#8211; These are used as unary operators, not functions</p>
+<li><emp>Heap</emp>: area in memory from which locations can be
+</br>allocated in response to calls to <code>new</code></li>
+<li><emp>Dynamic allocation</emp>: allocation on the heap</li>
