@@ -59,36 +59,64 @@ END;
 
 ## Cursor Flags
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>%FOUND: true if the most recent fetch returns a
+  </br>row</li>
+  <li>%NOTFOUND: true if the most recent fetch
+  </br>returns no row</li>
+  <li>%ISOPEN: true if cursor is open</li>
+  <li>%ROWCOUNT: total number of rows returned so
+  </br>far</li>
 </ul>
 
 ## Cursor Parameter
 <ul>
-  <li></li>
+  <li>A cursor may be reused with parameter(s):</li>
 </ul>
 
 ``` pgsql
-
+CURSOR propertyCursor(vStaffNo VARCHAR(4)) IS
+      SELECT propertyNo, street, city, postcode
+      FROM PropertyForRent
+      WHERE staffNo = vStaffNo
+      ORDER BY propertyNo;
 ```
 
 <ul>
-  <li></li>
+  <li>Later the cursor can be opened as:</li>
 </ul>
 
 ``` pgsql
-
+OPEN propertyCursor('SG14')
+...
+OPEN propertyCursor('SA9')
+...
 ```
 
 ## Update Rows through a Cursor
 <ul>
-  <li></li>
-  <li></li>
+  <li>A row may change after it has been fetched</li>
+  <li>Example:</li>
 </ul>
 
 ``` pgsql
+CURSOR propertyCursor IS
+SELECT propertyNo, street, city, postcode
+FROM PropertyForRent
+WHERE staffNo = 'SG14'
+ORDER BY propertyNo
+-- Lock the PropertyForRent table immediately
+FOR UPDATE NOWAIT;
+```
 
+<ul>
+  <li>Now in the loop:</li>
+</ul>
+
+``` pgsql
+UPDATE PropertyForRent
+SET staffNo = 'SG37'
+WHERE CURRENT OF propertyCursor;
+...
+COMMIT;
 ```
 
