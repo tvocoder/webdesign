@@ -378,4 +378,120 @@ void q() {
   <li>This is called <b>dynamic scoping</b></li>
   </ul></li>
   </ul>
-    
+  
+## code example:
+``` C
+#include <stdio.h>
+
+int x = 1;
+char y = 'a';
+
+void p() {
+  double x = 2.5;
+  printf("%c\n", y);
+  {
+     int y[10];
+  }
+}
+
+void q() {
+  int y = 42;
+  printf(%d\n", x);
+  p();
+}
+
+main() {
+   char x = 'b';
+   q();
+   return 0;
+}
+```
+
+### Problems with dynamic scoping:
+<ul>
+  <li>The declaration of a nonlocal name cannot be
+    </br>determined by simply reading the program: the
+    </br>program must be executed to know the execution
+    </br>path</li>
+    <li>Since nonlocal variable references cannot be
+  </br>predicted prior to execution, netiher can their data
+  </br>types</li>
+</ul>
+
+<li>Dynamic scoping is a possible option for highly
+  </br>dynamic, interpreted languages when programs
+  </br>are not expected to be extremely large</li>
+  
+## The Symbol Table (cont'd.)
+<ul>
+  <li>Runtime environment is simpler with dynamic
+    </br>scoping in an interpreter
+    <ul>
+      <li>APL, Snobol, Perl, and early dialects of Lisp were
+        </br>dynamically scoped</li>
+      <li>Scheme and Common Lisp use <b>static scoping</b></li>
+    </ul>
+  <li>There is additional complexity for symbol tables</li>
+  <li><code>struct</code> declaration must contain further
+  </br>declarations of the data fields within it
+  <ul>
+  <li>Those field must be accessible using dot member
+    </br>notation whenever the <code>struct</code> variable is in scope</li>
+    </ul></li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li>Two implications for struct variables:
+    <ul>
+      <li>A struct declaration actually contains a local symbol
+      </br>table itself as an attribute</li>
+  <li>This local symbol table cannot be deleted until the
+    </br>struct variable itself is deleted from the global
+    </br>symbol table of the program</li>
+    </ul>
+  </li>
+</ul>
+
+## code example:
+``` C
+struct {
+  int a;
+  char b;
+  double c;
+} x = {1, 'a', 2.5);
+
+void p() {
+  struct {
+    double a;
+    int b;
+    char c;
+  } y = { 1.2, 2, 'b' };
+  printf("%d, %c, %g\n", x.a, x.b, x.c);
+  printf("%f, %d, %c\n", y.a, y.b, y.c);
+}
+
+main () {
+   p();
+   return 0;
+}
+```
+
+## The Symbol Table (cont'd.)
+<ul>
+  <li>Any scoping structure that can be referenced
+  </br>directly must also have its own symbol table</li>
+  <li>Examples:
+    <ul>
+      <li>Named scopes in Ada</li>
+      <li>Classes, structs, and namespaces in C++</li>
+      <li>Classes and packages in Java</li></ul>
+  </li>
+  <li>Typically, there will be a table for each scope in a
+  </br>stack of symbol tables
+    <ul>
+      <li>When a reference to a name occurs, a search
+  </br>begins in the current table and continues to the next
+  </br>table if not found, and so on</li>
+    </ul></li>
+</ul>
