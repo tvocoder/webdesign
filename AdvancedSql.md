@@ -52,8 +52,21 @@
 <div class="slide" id="6">
   <h2>Declarations</h2>
   <ul>
-    <li>Variables </li>
-    <li></li>
-    <li></li>
+    <li>Variables and constant variables must be declared
+    </br>before they can be referenced</li>
+    <li>Possible to declare a variable as NOT NULL</li>
+    <li>%TYPE and %ROWTYPE</li>
   </ul>
 </div>
+
+<div class="slide" id="img">
+<dl>
+  <dt>[DECLARE (<i>Optional</i>)</dt>
+  <dd>&#8212;&ensp;declarations]</dd>
+  <dt>BEGIN (<i>Mandatory</i>)</dt> 
+  <dd>&#8212;&ensp;executable statements</dd>
+  <dt>[EXCEPTION</dt>
+  <dd>&#8212;&ensp;exception handlers]</dd>
+  <dt>END;</dt>
+  </dl>
+</div>                     
