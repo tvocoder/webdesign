@@ -127,3 +127,15 @@ EXCEPTION
  END;
         
 ```
+
+## Cursor Flags
+<ul>
+  <li>%FOUND: true if the most recent fetch returns a
+  </br>row</li>
+  <li>%NOTFOUND: true if the most recent fetch
+  </br>returns no row</li>
+  <li>%ISOPEN: true if cursor is open</li>
+  <li>%ROWCOUNT: total number of rows returned so
+  </br>far</li>
+</ul>
+
