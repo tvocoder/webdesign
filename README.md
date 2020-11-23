@@ -911,4 +911,56 @@ int f(int x) {
   </br>into your language</li>
 </ul>
 
+## Aliases
+<ul>
+  <li><b>Alias:</b> occurs when the same object is bound to
+  </br>two different names at the same time</li>
+  <li>Can occur during procedure call, through the use of
+  </br>pointer variables, or through assignment by sharing</li>
+</ul>
 
+``` C
+int *x, *y;
+x = (int *) malloc(sizeof(int));
+*x = 1;
+y = x; /* *x and *y now aliases */
+*y = 2;
+printf("%d\n", *x);
+```
+
+## Aliases (cont'd)
+<ul>
+  <li>Aliases can potentiall cause harmful side effects</li>
+  <li><b>Side effect:</b> any change in a variable's value that
+  </br>persists beyond the execution of the statement</li>
+  <li>Not all side effects are harmful; an assignment
+  </br>statement is intended to cause one</li>
+  <li>Side effects that change variables whose names
+  </br>do not directly appear in the statement are 
+  </br>potentially harmful
+    <ul>
+      <li>Cannot be determined from the written code</li>
+    </ul>
+  </li>
+  <li>Aliasing due to pointer assignment is difficult to
+  </br>control</li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li>Assignment by sharing implicitly uses pointers</li>
+  <li>Java has a mechanism for explicitly <b>cloning</b> an
+  </br>object so that aliases are not created by
+  </br>assignment</li>
+</ul>
+
+``` C
+class ArrTest{
+    public static void main(String[] args) {
+        int[] x = {1, 2, 3};
+        int[] y = x;
+        x[0] = 42;
+        System.out.println(y[0]);
+        }
+     }
+```
