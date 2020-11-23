@@ -19,7 +19,7 @@
   </li>
 </ul>
 
-``` plsql
+``` pgsql
 DECLARE
   vpCount NUMBER;
   vStaffNo PropertyForRent.staffNo%TYPE := 'SG14';
