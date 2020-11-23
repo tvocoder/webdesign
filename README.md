@@ -812,3 +812,25 @@ delete x;
   <li>If <code>e</code> is a variable named <code>y</code>:</li>
 </ul>
     
+## Variables (cont'd.)
+<ul>
+  <li>Variable on right side of assignment statement
+  </br>stands for a value (<b>r-value</b>); variable on left side
+  </br>stands for a location (<b>l-value</b>)</li>
+  <li><b>Address of operator</b>(&) in C: turns a reference
+  </br>into a pointer to fetch the address of a variablee</li>
+  <li><b>Assignment by sharing:</b> the location is 
+</br>copied instead of the value</li></li>
+  <li><b>Assignment by cloning:</b> allocates new location,
+</br>copies value, and binds to the new location</li>
+  <li>Both are sometimes called <b>pointer semantics</b> or <b>reference semantics</b></li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li><b>Storage semantics</b> or <b>value semantics</b> refer to
+  </br>standard assignment</li>
+  <li>Standard implementation of assignment by sharing
+  </br>uses pointers and implicit dereferencing</li>
+</ul>
+
