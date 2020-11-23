@@ -281,4 +281,101 @@ main() {
   </br>of a declaration apply</li>
   </ul>
   
-##
+## code example:
+``` C
+int x;
+
+void p() {
+char x;
+   x = 'a'; // assigns to char x
+   ::x = 42; // assigns to global int x
+   ...
+}
+
+main() {
+x = 2; // assigns to global x
+...
+}
+```
+
+## Declarations, Blocks, and Scope (cont'd.)
+<ul>
+  <li>Scope rules need to be constructed such that
+    </br>recursive (<i>self-referential</i>) declarations are possible
+    </br>when they make sense
+    <ul>
+  <li>Example: functions must be allowed to be recursive,
+    </br>so function name must have scope beginning before
+    </br>the block of the function body</li></ul>
+    </ul>
+
+``` C
+int factorial (int n) {
+  /* scope of factorial begins here */
+  /* factorial can be called here */
+  ...
+}
+```
+
+## The Symbol Table
+<ul>
+  <li><b>Symbol table:</b></br>
+  <ul>
+  <li>Must support <i>insertion</i>, <i>lookup</i>, and <i>deletion</i> of
+    </br>names with associated attributes, representing
+    </br>bindings in declarations</li>
+    <li>A lexically scoped, block-structured languages
+  </br>requires a stack-like data structure to perform
+  </br><b>scope analysis</b>
+  <ul>
+  <li>On block entry, all declarations of that block are
+    </br>processed and bindings added to symbol table</li>
+    <li>On block exit, bindings are removed, restoring any
+  </br>previous bindings that mayt have existed</li></ul>
+  </li>
+  </ul>
+  
+## code example:
+``` C
+int x;
+char y;
+
+void p() {
+  double x;
+  ...
+  { int y[10];
+    ...
+  }
+  ...
+}
+
+void q() {
+  int y;
+  ...
+ }
+ 
+ main() {
+  char x;
+  ...
+  }
+```
+<caption>C Program demonstrating symbol table structure</caption>
+
+
+## The Symbol Table(cont'd.)
+<ul>
+  <li>The previous example assumes that declarations
+    </br>are processed <i>statically(prior to execution)</i>
+    <ul>
+  <li>This is called <b>static scoping</b> or <b>lexical scoping</b></li>
+  <li>Symbol table is managed by a <i>compiler</i></li>
+  <li>Bindings of declarations are all <i>static</i></li>
+  </ul>
+  <li>If symbol table is managed <i>dynamically</i> (during
+  </br>execution), declarations will be processed as they
+  </br>are encountered along an execution path
+  <ul>
+  <li>This is called <b>dynamic scoping</b></li>
+  </ul></li>
+  </ul>
+    
