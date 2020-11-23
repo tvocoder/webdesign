@@ -554,7 +554,9 @@ end ex;
 </ul>
 
 ## code example:
+
 <h3> Three overloaded <code>max</code> functions in C++</h3>
+
 ``` C++
 int max(int x, int y) { // max #1
     return x > y ? x : y;
@@ -567,6 +569,7 @@ double max(double x, double y) { // max #2
 int max(int x, int y, int z) { // max #3
     return x > y ? (x > z ? x : z ) : (y > z ? y : z );
 ```
+
 ## Name Resolution and Overloading (cont'd.)
 <ul>
   <li>Consider these function calls:
@@ -578,7 +581,7 @@ int max(int x, int y, int z) { // max #3
 </br>call</li>
   <li>But this <b>ambiguous</b> call depends on the language
 </br>rules(if any) for converting between data types:
-<code>max(2.1, 3); // which max?</code></li>
+<p><code>max(2.1, 3); // which max?</code></p></li>
 </ul>
 
 ## (cont'd.)
