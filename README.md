@@ -597,4 +597,3 @@ double max(double x, int y) { // max #5
 <span><b>Figure 7.22</b> Two more overloaded <code> max<.code> functions in C++ (see Figure 7.21)</span>
   <li>Automatic conversions as they exist in C++ and
   </br>Java significantly complicate overload resolution</li>
-</ul>
