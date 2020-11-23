@@ -582,18 +582,17 @@ int max(int x, int y, int z) { // max #3
 </ul>
 
 ## (cont'd.)
-<ul>
-  <li>Adding these definitions makes the function calls
-    </br>legal in C++ and Ada but is unnecessary in Java</li></ul>
+<li>Adding these definitions makes the function calls
+  </br>legal in C++ and Ada but is unnecessary in Java</li>
+
 ``` C++
 double max(int x, double y) { // max #4
     return x > y ? (double) x : y;
- }
- 
+}
+
 double max(double x, int y) { // max #5
     return x > y ? x : (double) y;
- }
+}
 ```
-<span><b>Figure 7.22</b> Two more overloaded <code> max<.code> functions in C++ (see Figure 7.21)</span>
-  <li>Automatic conversions as they exist in C++ and
+<li> Automatic conversions as they exist in C++ and
   </br>Java significantly complicate overload resolution</li>
