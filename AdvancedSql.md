@@ -102,3 +102,26 @@ FROM PropertyForRent
 WHERE staffNo = vStaffNo;
 SET vStaffNo = 'SG14';
 ```
+
+<div class="slide" id="11">
+  <h2>Control Statements</h2>
+  <ul>
+    <li>Conditional: <code>IF statement</code></li>
+    <li>Conditional: <code>CASE statement</code></li>
+    <li>Iteration statement <code>(LOOP)</code></li>
+    <li>Iteration statement <code>(WHILE and REPEAT)</code></li>
+    <li>Iteration statement <code>(FOR)</code></li>
+  </ul>
+</div>
+
+
+## IF Statement
+``` sql
+IF(vPosition = 'Manager') THEN
+    vSalary := vSalary*1.05;
+ELSIF(...) THEN // optional
+    ...
+ELSIF // optional
+    vSalary := vSalary*1.08;
+END IF;
+```
