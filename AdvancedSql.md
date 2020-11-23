@@ -59,7 +59,7 @@
   </ul>
 </div>
 
-<div class="slide" id="img">
+<div class="slide" id="figure00">
 <dl>
   <dt>[DECLARE (<i>Optional</i>)</dt>
   <dd>&#8212;&ensp;declarations]</dd>
@@ -70,3 +70,23 @@
   <dt>END;</dt>
   </dl>
 </div>                     
+
+<div class="slide" id="8">
+  <ul>
+    <li>vRent NUMBER(6, 2) NOT NULL := 600;</li>
+    <li>vStaffNo Staff.staffNo%TYPE;</li>
+  </ul>
+</div>
+
+<div class="slide" id="9">
+  <h2>Assignments</h2>
+  <ul>
+    <li>Variables can be assigned in three ways:
+      <ul>
+        <li>Using the normal assignment statement(:=)</li>
+        <li>SET</li>
+        <li>SQL SELECT or FETCH statement</li>
+      </ul>
+    </li>
+  </ul>
+</div>
