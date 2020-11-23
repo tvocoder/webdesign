@@ -868,10 +868,40 @@ delete x;
 <div>
   <p>
   <ul>
-    <li>a</li>
-    <li>b</li>
-    <li>c</li>
+    <li><code>a</code> and <code>b</code> are compile-time constants
+      <ul>
+        <li><code>a</code> is a manifest constant</li>
+      </ul>
+    <li><code>c</code> is a static(load-time constant)</li>
+    <li><code>d</code> is a dynamic constant</li>
   </ul>
   </p>
-  <aside><code>hello</code></aside>
 </div>
+
+``` C
+#include <stdio.h>
+#include <time.h>
+
+const int a = 2;
+const int b = 27+2*2;
+/* warning - illegal C code! */
+const int c = (int) time(0);
+
+int f(int x) {
+   const int d = x+1;
+   return b+c;
+}
+```
+
+## Aliases, Dangling References, and Garbage
+<ul>
+  <li>There are several problems with naming and
+  </br>dynamic allocation conventions of programming
+  </br>languages, especially C, C++, and Ada</li>
+  <li>As a programmer, you can learn to avoid those
+  </br>problematic situations</li>
+  <li>As a language designer, you can build solutions
+  </br>into your language</li>
+</ul>
+
+
