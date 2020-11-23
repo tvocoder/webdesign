@@ -117,11 +117,36 @@ SET vStaffNo = 'SG14';
 
 ## IF Statement
 ``` mssql
-IF(vPosition = 'Manager') THEN
+IF (vPosition = 'Manager') THEN
     vSalary := vSalary*1.05;
-ELSIF(...) THEN // optional
+ELSIF (...) THEN // optional
     ...
 ELSIF // optional
     vSalary := vSalary*1.08;
 END IF;
+```
+
+## CASE Statement
+``` sql
+CASE lowercase(input)
+    WHEN 'a' THEN x := 1;
+    WHEN 'B' THEN x := 2;
+                  y := 3;
+    WHEN 'default' THEN x := 3;
+END CASE;
+```
+
+## Giving Raises
+``` sql
+vAvgSalary Staff.Salary%TYPE;
+SELECT avg(Salary) INTO vAvgSalary
+FROM Staff;
+
+UPDATE Staff
+SET Salary = Salary*1.05
+WHERE Salary >= vAvgSalary;
+
+UPDATE Staff
+SET Salary = Salary*1.1
+WHERE Salary < vAvgSalary;
 ```
