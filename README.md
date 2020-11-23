@@ -756,6 +756,59 @@ cout << *x << endl; // output in C++
 delete x;
 ```
 <p>&emsp;&#8211; These are used as unary operators, not functions</p>
-<li><emp>Heap</emp>: area in memory from which locations can be
+<li><b>Heap</b>: area in memory from which locations can be
 </br>allocated in response to calls to <code>new</code></li>
-<li><emp>Dynamic allocation</emp>: allocation on the heap</li>
+<li><b>Dynamic allocation</b>: allocation on the heap</li>
+
+## Allocation, Lifetimes, and the Environment (cont'd.)
+<ul>
+  <li>Many languages require that heap deallocation be
+  </br>managed automatically</li>
+  <li>Heap allocation/deallocation and explicit pointer
+  </br>manipulation are inherently operations
+    <ul>
+      <li>Can introduce seriously faulty runtime behavior that
+      </br>may even compromise the operating system</li>
+    </ul>
+  </li>
+  <li><b>Storage class:</b> the type of allocation
+    <ul>
+      <li>Static(for global variables)</li>
+      <li>Automatic(for local variables)</li>
+      <li>Dynamic(for heap allocation)</li>
+    </ul>
+  </li>
+</ul>
+
+## Variables and Constants
+<ul>
+  <li>Although the references to variables and constants
+  </br>look the same in many languages, their roles and
+  </br>semantics are very different</li>
+  <li>We will look at the basic semantics of both</li>
+</ul>
+
+## Variables
+<ul>
+  <li><b>Variable</b>: an object whose stored value can
+    </br>change during exectuion
+    <ul>
+      <li>Is completely specified by its attributes (name,
+      </br>location, value, data type, size of memory storage)</li>
+    </ul></li>
+  <li><b>Box and circle diagram:</b> focuses on name
+  </br>and location</li>
+</ul>
+
+## Variables (cont'd.)
+<ul>
+  <li><b>Assignment</b> statement: principle way in which a
+  </br>variable changes its value</li>
+  <li>Example: <code>x = e</code>
+    <ul>
+      <li>Semantics: expression <code>e</code> is evaluated to a value,
+      </br>then copied into the location of <code>x</code></li></ul>
+  </li>
+  <li>If <code>e</code> is a variable named <code>y</code>:</li>
+</ul>
+    
