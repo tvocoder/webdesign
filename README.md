@@ -650,6 +650,7 @@ class A
 <p><emp>7.26</emp> Java class definition showing overloading of the same name for different language constructs</p>
 
 ## Allocation, Lifetimes, and the Environment
+
 <ul>
   <li>Environment: maintains the bindings of names to
     </br>locations
@@ -714,15 +715,19 @@ A: { int x;
 <ul>
   <li>Memory for local variables within a function will not
   </br>be allocated until the function is called</li>
+  
   <li><b>Activation:</b> a call to a function</li>
   <li><b>Activation record:</b> the corresponding region of
-</br>allocated memory</li>
+  </br>allocated memory</li>
+  
   <li>In a block-structured language with lexical scope,
-</br>the same name can be associated with different
-</br>locations, but only one of these can be accessed at 
-</br>any one time</li>
+  </br>the same name can be associated with different
+  </br>locations, but only one of these can be accessed at 
+  </br>any one time</li>
+  
   <li><b>Lifetime</b>(or <b>extent</b>) of an object is the duration of
-</br>its allocation in the environment</li>
+  </br>its allocation in the environment</li>
+  
 </ul>
 
 ## (cont'd.)
@@ -745,6 +750,7 @@ A: { int x;
 </ul>
 
 ## Allocation, Lifetimes, and the Environment (cont'd.)
+
 <li>C++ simplifies dynamic allocation with operators
 </br><code>new</code> and <code>delete</code>:</li>
 
@@ -761,6 +767,7 @@ delete x;
 <li><b>Dynamic allocation</b>: allocation on the heap</li>
 
 ## Allocation, Lifetimes, and the Environment (cont'd.)
+
 <ul>
   <li>Many languages require that heap deallocation be
   </br>managed automatically</li>
