@@ -834,3 +834,37 @@ delete x;
   </br>uses pointers and implicit dereferencing</li>
 </ul>
 
+## Constants
+<ul>
+  <li><b>Constant:</b> an entity with a fixed value for the
+    </br>duration of its existence in a program
+    <ul>
+      <li>Like a variable, but has no location attribute</li>
+  <li>Sometimes say that a constant has <b>value</b>
+  </br><b>semantics</b></li>
+    </ul>
+  </li>
+  <li><b>Literal:</b> a representation of characters or digits</li>
+  <li><b>Compile-time constant:</b> its value can be
+  </br>computed during compilation</li>
+  <li><b>Static constant:</b> its value can be computed at load
+  </br>time</li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li><b>Manifest constant:</b> a name for a literal</li>
+  <li>Dynamic constant: its value must be computed
+  </br>during execution</li>
+  <li>Function definitions in virtually all languages are
+  </br>definitions of constants whose values are functions
+    <ul>
+      <li>This differs from a function variable in C, which must
+      </br>be defined as a pointer</li>
+    </ul>
+  </li>
+</ul>
+
+
+  
+</ul>
