@@ -495,3 +495,43 @@ main () {
   </br>table if not found, and so on</li>
     </ul></li>
 </ul>
+
+## code example
+``` Ada
+with Text_IO; use Text_IO;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+
+procedure ex is
+  x: integer := 1;
+  y: character := 'a';
+  
+  procedure p is
+  x: float := 2.5;
+  begin
+    put(y); new_line;
+  A: declare
+       y: array (1..10) of integer;
+     begin
+       y(1) := 2;
+       put(y(1)); new_line;
+       put(ex.y); new_line;
+     end A;
+  end p;
+  
+  procedure q is
+     y: integer := 42;
+  begin:
+    put(x); new_line;
+    p;
+  end q;
+  
+   begin
+   declare
+      x: character := 'b';
+   begin
+      q;
+      put(ex.x); new_line;
+   end;
+end ex;
+  
+```
