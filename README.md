@@ -535,3 +535,66 @@ procedure ex is
 end ex;
   
 ```
+
+## Name Resolution and Overloading
+<ul>
+  <li>Addition operator <code>+</code> actually indicates at least
+    </br>two different operations: <i>integer addition</i> and <i>floating-point addition</i>
+    <ul>
+  <li><code>- +</code> operator is said to be <b>overloaded</b></li>
+  </ul>
+  <li>Translator must look at the data type of each
+  </br>operand to determine which operation is indicated</li>
+  <li><b>Overload resolution:</b> process of choosing a
+  </br>unique function among many with the same name
+  <ul>
+    <li>Lookup operation of a symbol table must search on
+  </br>name plus number and data type of parameters</li>
+  </ul>
+</ul>
+
+## code example:
+<h3> Three overloaded <code>max</code> functions in C++</h3>
+``` C++
+int max(int x, int y) { // max #1
+    return x > y ? x : y;
+}
+
+double max(double x, double y) { // max #2
+    return x > y ? x : y;
+}
+
+int max(int x, int y, int z) { // max #3
+    return x > y ? (x > z ? x : z ) : (y > z ? y : z );
+```
+## Name Resolution and Overloading (cont'd.)
+<ul>
+  <li>Consider these function calls:
+    <p><code>max(2, 3); // calls max #1 </br> max(2.1, 3.2); // calls max #2 </br> max(1, 3, 2); // calls max #3</code></p>
+    </li>
+  <li>Symbol table can determine the appropriate
+  </br>function based on number and type of parameters</li>
+  <li><b>Calling context:</b> the information contained in each
+</br>call</li>
+  <li>But this <b>ambiguous</b> call depends on the language
+</br>rules(if any) for converting between data types:
+<code>max(2.1, 3); // which max?</code></li>
+</ul>
+
+## (cont'd.)
+<ul>
+  <li>Adding these definitions makes the function calls
+    </br>legal in C++ and Ada but is unnecessary in Java</li></ul>
+``` C++
+double max(int x, double y) { // max #4
+    return x > y ? (double) x : y;
+ }
+ 
+double max(double x, int y) { // max #5
+    return x > y ? x : (double) y;
+ }
+```
+<span><b>Figure 7.22</b> Two more overloaded <code> max<.code> functions in C++ (see Figure 7.21)</span>
+  <li>Automatic conversions as they exist in C++ and
+  </br>Java significantly complicate overload resolution</li>
+</ul>
