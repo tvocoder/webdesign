@@ -265,4 +265,20 @@ main() {
   ...
 }
 ```
-            
+
+## Declarations, Blocks, and Scope (cont'd.)
+<ul>
+  <li>Declarations in nested blocks take precedence
+    </br>over previous declarations</li>
+    <li>A global variable is said to have a <b>scope hole</b> in a
+  </br>block containing a local declaration with the same name
+      <ul>
+  <li>Use <b>scope resolution operator</b> <code>::</code> in C++ to
+    </br>access the global variable</li></ul>
+    <li>Local declaration is said to <b>shadow</b> its global
+  </br>declaration</li>
+  <li><b>Visibility:</b> includes only regions where the bindings
+  </br>of a declaration apply</li>
+  </ul>
+  
+##
