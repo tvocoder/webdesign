@@ -90,3 +90,15 @@
     </li>
   </ul>
 </div>
+
+``` sql
+vX NUMBER;
+....
+vStaffNo := 'SG14';
+vRent := 500;
+
+SELECT COUNT(*) INTO vX
+FROM PropertyForRent
+WHERE staffNo = vStaffNo;
+SET vStaffNo = 'SG14';
+```
