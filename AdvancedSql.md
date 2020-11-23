@@ -116,7 +116,7 @@ SET vStaffNo = 'SG14';
 
 
 ## IF Statement
-``` sql
+``` mysql
 IF(vPosition = 'Manager') THEN
     vSalary := vSalary*1.05;
 ELSIF(...) THEN // optional
