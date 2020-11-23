@@ -747,6 +747,7 @@ A: { int x;
 ## Allocation, Lifetimes, and the Environment (cont'd.)
 <li>C++ simplifies dynamic allocation with operators
 </br><code>new</code> and <code>delete</code>:</li>
+
 ``` C++
 int* x = new int; // C++
 *x = 2;
