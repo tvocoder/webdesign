@@ -142,7 +142,7 @@ print_r($_SESSION);
 </html>
 ```
 
-<div class="note"><h5>How does it work? How does it know it's me?</h5>
+<div class="note"><h4>How does it work? How does it know it's me?</h4>
   <p>Most sessions set a user-key on the user's computer that looks something
     </br>like this: 765487cf34ert8dede5a562e4f3a7e12.
     </br>The, when a session is opened on another page,
