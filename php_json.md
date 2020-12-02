@@ -54,6 +54,7 @@ var dumb(json_decode($jsonobj));
     </br>JSON_OBJECT_AS_ARRAY,
     </br>JSON_THROW_ON_ERROR, etc...</td>
 </tr>
+</table>
 
 <h2>More Examples</h2>
 <h3>Example</h3>
