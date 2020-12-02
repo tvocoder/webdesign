@@ -60,4 +60,75 @@ echo '<tr><td' . $filter . '</td><td>' . filter_id($filter) . '</td></tr>';
     <ul><li>The variable you want to check</li>
   <li>The type of check to use</li>
     </ul></p>
+ </div>
+ 
+ <div>
+  <h2>Sanatize a String</h2>
+  <p>The following example uses the <b>filter_var()</b> function to remove all
+    </br>HTML tags from a string:</p>
+</div>
+
+<div>
+  <h3>Example</h3>
+</div>
+
+``` php
+<?php
+  $str = "<h1>Hello World!</h1>";
+  $newstr = filter_var($str, FILTER_SANITIZE_STRING);
   
+  echo $newstr;
+?>
+```
+
+<div>
+  <h2>Sanitize and Validate an Email Address</h2>
+  <p>The following examples uses the <b>filter_var()</b> function to first remove
+    </br>an illegal characters from the <b>$email</b> variable, then check if it
+    </br>is a valid email address:</p>
+ </div>
+
+<h3>Example</h3>
+
+``` php
+<?php
+$email = "john.doe@example.com";
+
+// Remove all illegal characters from email
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+// Validate e-mail
+if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+    echo("$email is a valid email address");
+    }
+else {
+    echo("$email is not a valid email address");
+   }
+?>
+```
+
+<div>
+  <h2>Sanitize and Validate a URL</h2>
+  <p>The following example uses the <b>filter_var()</b> function to first remove
+    </br>all illegal characters from a URL, then check if <b>$url</b> is a valid URL:</p>
+</div>
+
+<div>
+  <h3>Example</h3></div>
+  
+``` php
+<?php
+$url = "https://www.w3schools.com";
+
+// Remove all illegal characters from a URL
+$url = filter_var($url, FILTER_SANITIZE_URL);
+
+// Validate URL
+if(!filter_var($url, FILTER_VALIDATE_URL) === false) {
+    echo("$url is a valid URL");
+    }
+else {
+    echo("$url is not a valid URL");
+  }
+?>
+```
