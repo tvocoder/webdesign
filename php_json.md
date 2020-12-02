@@ -40,3 +40,84 @@ var dumb(json_decode($jsonobj));
   </br>object will be converted into an associative array. When set 
   </br>to flase, it returns an object. Default is false.</td>
 </tr>
+
+<tr>
+  <td><i>depth</i></td>
+  <td>Optional. Specifies the recursion depth. Default recursion
+    </br>depth is 512.</td>
+</tr>
+
+<tr>
+  <td><i>options</i></td>
+  <td>Optional. Specifies a bitmask
+    </br>(JSON_BIGINT_AS_STRING,
+    </br>JSON_OBJECT_AS_ARRAY,
+    </br>JSON_THROW_ON_ERROR, etc...</td>
+</tr>
+
+<h2>More Examples</h2>
+<h3>Example</h3>
+<p>Store JSON data in a PHP variable, and then decode it into
+  </br>a PHP associative array:</p>
+  
+``` php
+<?php
+   $jsonobj = '{"Peter": 35, "Ben": 37, "Joe": 43}';
+   
+   var_dump(json_decode($jsonobj, true));
+ ?>
+```
+
+<h3>Example</h3>
+<p>How to access the values from the PHP object:</p>
+
+``` php
+<?php
+   $jsonobj = '{"Peter": 35, "Ben": 37, "Joe": 43}';
+   $obj = json_decode($jsonobj);
+   
+   echo $obj->Peter;
+   echo $obj->Ben;
+   echo $obj->Joe;
+?>
+```
+
+<h3>Example</h3>
+<p>How to access the values from the PHP associative array:</p>
+
+``` php
+<?php
+  $jsonobj = '{"Peter":35, "Ben":37, "Joe":43}';
+  
+  $arr = json_decode($jsonobj, true);
+  
+  echo $arr["Peter"];
+  echo $arr["Ben"];
+  echo $arr["Joe"];
+?>
+```
+
+<h1>PHP <code>json_encode()</code> Function</h1>
+<h3>Example</h3>
+<p>How to encode an associative array into a JSON object:</p>
+
+``` php
+<?php
+  $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+  
+  echo json_encode($age);
+?>
+```
+
+<h2>More Examples</h2>
+<h3>Example</h3>
+<p>How to encode an indexed array into a JSON array:</p>
+
+``` php
+<?php
+  $cars = array("Volvo", "BMW", "Toyota");
+  
+  echo json_encode($cars);
+?>
+```
+
