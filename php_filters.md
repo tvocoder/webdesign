@@ -1,3 +1,5 @@
+[w3schools](w3schools.com)
+
 <h1>PHP Filters</h1>
 <p>Validating data = Determine if the data is in proper form.</p>
 <p>Sanitizing data = Remove any illegal character from data.</p>
