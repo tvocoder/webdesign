@@ -173,4 +173,30 @@ session_start();
 </body>
 </html>
 ```
+<h2>Destroy a PHP Session</h2>
+<p>To remove all global session variables and destroy the session,
+  </br>use <b>session_set()</b> and <b>session_destroy()</b>:</p>
+  
+<h3>Example</h3>
+
+``` php
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+   // remove all session variables
+   session_unset();
+   
+   // destroy the session
+   session_destroy();
+?>
+
+</body>
+</html>
+```
 
